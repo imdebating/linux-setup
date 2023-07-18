@@ -1,4 +1,3 @@
-# Place this snipit below import statement
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 #                                                           #
 #  888888 8888888              88 8888888                   #
@@ -35,11 +34,12 @@ print('\033[38;5;15;48;5;196m                                                   
 print('\033[38;5;228mEnsure the kernel is not the subject of this update.\nCheck the list in the next step to verifiy the \nkernel is not included in the list of packages to be updated.\n\n')
 while True:
   choice = input('\033[38;5;228mDo you want to continue? [y/N]: \033[0m').lower()
-  if choice == 'y' :
+  if choice == 'y' or choice == 'yes':
     print('\nResuming program...\n\n')
     break
-  elif choice == 'n' or choice == '':
+  elif choice == 'n' or choice == 'no' or choice == '':
     sys.exit('\nExiting program...\n\n')
   else:
+    print('Invalid response, please try again.')
     continue
 # -<< Finish >>-------------------------------------------------------
