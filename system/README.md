@@ -42,13 +42,13 @@ vgcreate iff /dev/sd[abce] /dev/sdd[3567]
 lvcreate -n data_cache -l 100%FREE iff /dev/sdd3
 lvcreate -n data_meta -l 100%FREE iff /dev/sdd5
 lvconvert --type cache-pool --poolmetadata iff/data_meta iff/data_cache
-lvcreate --type vdo -n data -l 100%FREE -V 16T iff/data_pool /dev/sda /dev/sdb /dev/sdc
+lvcreate --type vdo -n data -l 95%FREE -V 16T iff/data_pool /dev/sda /dev/sdb /dev/sdc
 lvvonvert --type cache --cachepool iff/data_cache iff/data
 # Backup LV:
 lvcreate -n backup_cache -l 100%FREE iff /dev/sdd6
 lvcreate -n backup_meta -l 100%FREE iff /dev/sdd7
 lvconvert --type cache-pool --poolmetadata iff/backup_meta iff/backup_cache
-lvcreate --type vdo -n backup -l 100%FREE -V 1.33333T iff/backup_pool /dev/sde
+lvcreate --type vdo -n backup -l 5%FREE -V 1.33333T iff/backup_pool /dev/sde
 lvconvert --type cache --cachepool iff/backup_cache iff/backup
 ```
 
